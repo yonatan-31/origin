@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lisper Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <form method="POST">
+        <input type="text" name="city" placeholder="Enter city" required>
+        <input id="get" type="submit" value="SEND" formaction="/">
+      </form>
+      
+      <% if (name && temperature && pressure && humidity) { %>
+        <div class="weather-info">
+            <% if (weather === "Clouds") { %>
+                <img src="images/clouds.png" alt="Clouds">
+              <% } else if (weather === "Clear") { %>
+                <img src="images/Clear.png" alt="Clear">
+              <% } else if (weather === "Rain") { %>
+                <img src="images/rain.png" alt="Rain">
+              <% } else if (weather === "Drizzle") { %>
+                <img src="images/Drizzle.png" alt="Drizzle">
+              <% } else if (weather === "Mist") { %>
+                <img src="images/Mist.png" alt="Mist">
+              <% } %>
+            
+          <h2><%= name %></h2>
+          <p>Temperature: <span><%= temperature %></span>°C</p>
+          <p>Pressure: <span><%= pressure %></span> hPa</p>
+          <p>Humidity: <span><%= humidity %></span>%</p>
+        </div>
+      <% } else { %>
+        <p><%= temp %></p>
+      <% } %>
+      
+  </div>
+</body>
+
+</html>
